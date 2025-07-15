@@ -1,0 +1,38 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Mateo Algarin Rendon",
+      "email": "mateo@default.com",
+      "password": "password",
+      "role": "admin",
+      "subscribedEvents": []
+    }
+  ],
+  "events": [
+    {
+      "id": "6e82",
+      "idString": "[object Promise]",
+      "title": "Metallica Expo",
+      "info": "You can see your incredible band in live!",
+      "capacity": "900",
+      "date": "2025-08-06"
+    },
+    {
+      "id": "8b59",
+      "idString": "[object Promise]",
+      "title": "T1 vs GenG",
+      "info": "See the classical match of titans!",
+      "capacity": "100",
+      "date": "2025-07-12"
+    },
+    {
+      "id": "4dca",
+      "idString": "[object Promise]",
+      "title": "Hey! Miranda!",
+      "info": "See the most cultural pop of latam!",
+      "capacity": "100",
+      "date": "2025-07-26"
+    }
+  ]
+}
