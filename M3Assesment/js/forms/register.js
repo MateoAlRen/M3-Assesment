@@ -1,4 +1,13 @@
 export async function registerUser() {
+    if (localStorage.getItem("user")) {
+        if (JSON.parse(localStorage.getItem("user")).role === "admin") {
+            window.location.hash = "#/modifyevents";
+        } else {
+            window.location.hash = "#/events";
+        }
+        return;
+    }
+    // Render the registration form
     document.getElementById("pageContent").innerHTML = `
     <div style="display: flex; align-items: center; justify-content: center; height: 100vh;">
             <div style="border: 1px solid gray; padding: 3rem; border-radius: 25px; box-shadow: 0px 0px 2px;">
@@ -77,7 +86,7 @@ export async function registerUser() {
                         "name": name.value,
                         "email": email.value,
                         "password": password.value,
-                        "isAdmin": false
+                        "role": user
                     }
 
                     newUser(user);
@@ -88,7 +97,7 @@ export async function registerUser() {
             }
         }
     });
-
+    // Function to create a new user
     async function newUser(user){
         try {
             fetch("http://localhost:3000/users", {
@@ -99,8 +108,8 @@ export async function registerUser() {
                 body: JSON.stringify(user)
             });
             setTimeout(() => {
-                
-                window.location.hash = "#/login";
+                localStorage.setItem("user", JSON.stringify(user));
+                window.location.hash = "#/myevents";
             }, 2000);
         } catch (error){
             console.error(`Your petition has a problem: ${error}`)

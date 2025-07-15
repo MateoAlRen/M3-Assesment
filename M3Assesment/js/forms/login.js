@@ -1,4 +1,13 @@
 export async function userValidation() {
+    if (localStorage.getItem("user")) {
+        if (JSON.parse(localStorage.getItem("user")).role === "admin") {
+            window.location.hash = "#/modifyevents";
+        } else {
+            window.location.hash = "#/events";
+        }
+        return;
+    }
+    // Render the login form
     document.getElementById("pageContent").innerHTML = `
     <div style="display: flex; align-items: center; justify-content: center; height: 100vh;">
             <div style="border: 1px solid gray; padding: 3rem; border-radius: 25px; box-shadow: 0px 0px 2px;">
@@ -30,6 +39,7 @@ export async function userValidation() {
             </div>
         </div>
     `
+    // Set the hash to login to load this view
     window.location.hash = "#/login";
     let email = document.getElementById("email");
     let password = document.getElementById("password");
@@ -40,7 +50,7 @@ export async function userValidation() {
     
         userConfirm(email.value, password.value);
     })
-
+    // This function will check if the user exists in the database
     async function userConfirm(email,password){
         try {
             const response = await fetch("http://localhost:3000/users",{
@@ -53,6 +63,11 @@ export async function userValidation() {
             let validation = data.find(user => user.email === email && user.password === password);
             if (validation) {
                 localStorage.setItem("user", JSON.stringify(validation));
+                if (validation.role === "admin") {
+                    window.location.hash = "#/modifyevents";
+                } else {
+                    window.location.hash = "#/events";
+                }
             } 
         } catch (error) {
             console.error(`Your petition has a problem: ${error}`);
