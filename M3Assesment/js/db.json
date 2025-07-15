@@ -1,0 +1,48 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Mateo Algarin Rendon",
+      "email": "mateo@default.com",
+      "password": "password",
+      "isAdmin": true
+    },
+    {
+      "id": "0ccb",
+      "name": "Pc",
+      "email": "mateo@defa22ult.com",
+      "password": "MATEO",
+      "isAdmin": false
+    },
+    {
+      "id": "cd7b",
+      "name": "Pc",
+      "email": "mateo@defa222ult.com",
+      "password": "MATEO",
+      "isAdmin": false
+    },
+    {
+      "id": "35ff",
+      "name": "cellphone",
+      "email": "robincortes@riwi.io",
+      "password": "123",
+      "isAdmin": false
+    }
+  ],
+  "events": [
+    {
+      "id": "27ca",
+      "title": "22",
+      "info": "22",
+      "date": "2025-07-05",
+      "capacity": "2"
+    },
+    {
+      "id": "5e23",
+      "title": "22",
+      "info": "22",
+      "date": "",
+      "capacity": "22"
+    }
+  ]
+}
